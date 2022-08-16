@@ -14,3 +14,9 @@ s.add(y == 0)
 
 if s.check() == sat:  # If satisfiable
     print(s.model())  # [x = 5/3]
+
+# All solutions
+# while s.check() == sat:  # While satisfiable
+#     m = s.model()
+#     print(m)  # [x = 5/3], [x = -7/2]
+#     s.add(x != m[x])  # Exclude this solution
