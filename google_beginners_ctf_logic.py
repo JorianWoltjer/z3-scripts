@@ -1,13 +1,13 @@
 from z3 import *
 
+# Circuit: https://imgur.com/HDOJ4Uy
+
 s = Solver()
 
 # Setup variables
-
 a, b, c, d, e, f, g, h, i, j = Bools('a b c d e f g h i j')
 
 # Setup circuit logic
-
 ab = Not(Or(a, Not(b)))
 cd = Or(Not(c), d)
 ef = Or(e, Not(f))
@@ -20,14 +20,12 @@ bottom = And(gh, ij)
 s.add(And(top, bottom))
 
 # Execute solver
-
 print(s)
 print(s.check())
 m = s.model()
 print(m)
 
 # Create flag
-
 answers = {
     'a': m[a],
     'b': m[b],
